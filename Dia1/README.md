@@ -219,9 +219,9 @@ o = OSCresponderNode(nil, '/pitch', { |t, r, msg| msg.postln;}).add;
 //HOST 1
 (
 a=MIDetectorManager.new(nets:NetAddr("192.168.1.100",32001),args:[\doPost,true,\doPlot,true,\doStats,true]);
-a.addDetector("FTBins"); //sends an array of complex numbers Real1,Imag1....RealN-1,ImagN-1
-a.addDetector("FTMags");
-a.addDetector("PowerBands");
+a.addDetector("Pitch");
+a.addDetector("Onset");
+a.addDetector("Amp");
 )
 
 //READ HOST 2
@@ -232,9 +232,9 @@ o = OSCresponderNode(n, '/pitch', { |t, r, msg| msg.postln;}).add;
 //HOST 2
 (
 a=MIDetectorManager.new(nets:NetAddr("192.168.1.102",32002),args:[\doPost,true,\doPlot,true,\doStats,true]);
-a.addDetector("FTBins"); //sends an array of complex numbers Real1,Imag1....RealN-1,ImagN-1
-a.addDetector("FTMags");
-a.addDetector("PowerBands");
+a.addDetector("Pitch");
+a.addDetector("Onset");
+a.addDetector("Amp");
 )
 
 //READ HOST 1
