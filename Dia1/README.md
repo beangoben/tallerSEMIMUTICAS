@@ -57,10 +57,10 @@ a.addDetector("Amp");
 
 - Probar varios Detectores como y con varios sonidos:
 
--- Deteccion de diferentes tipos de Frecuencias
-
-
-
+- Deteccion de diferentes tipos de Frecuencias
+  Pitch
+  Tartini
+  FTPeak
 
 ```javascript
 (
@@ -70,6 +70,40 @@ a.addDetector("Tartini");
 a.addDetector("FTPeak");
 )
 ```
+
+Sonidos a probar:
+
+```javascript
+x={
+  var freq=MouseX.kr(20,10000).poll(label:"Real freq");
+  SinOsc.ar(freq )*0.2
+}.play
+x.free
+
+// VS a Blip Wave o Buzz with 4 Harmonics
+x={
+  var freq=MouseX.kr(20,10000).poll(label:"Real freq");
+  SinOsc.ar(freq ,4)*0.2
+}.play
+
+x.free
+// VS a Blip Wave o Buzz with 200 Harmonics
+x={
+  var freq=MouseX.kr(20,10000).poll(label:"Real freq");
+  Blip.ar(freq ,200)*0.2
+}.play
+
+x.free
+
+// vs a Bank of frequency resonators
+x={ DynKlank.ar([[200, 671, 1153, 1723], nil, [1, 1, 1, 1]], PinkNoise.ar([0.007,0.007])) }.play;
+x.free
+
+// vs a White Noise
+x={ WhiteNoise.ar(0.2) }.play;
+x.free
+```javascript
+
 
 - Comprobar que manda informacion y llega en tu red local con:
 
