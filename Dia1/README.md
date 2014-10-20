@@ -24,9 +24,27 @@
 - Instalar en su OS favorito[MIDetector](https://github.com/beangoben/MIDetectorOSC)
 - Executar MIDetector en Supercollider con:
 
+```javascript
+(
+a=MIDetectorManager.new(net:NetAddr("127.0.0.1",32000));
+a.addDetector("Pitch");
+a.addDetector("Onset");
+a.addDetector("Amp");
+)
+```
 
 - Activatar lectura de Microfono
 
+```javascript
+z = {SoundIn.ar(0)}.play;
+
+(
+a=MIDetectorManager.new(ins:z, net:NetAddr("127.0.0.1",32000));
+a.addDetector("Pitch");
+a.addDetector("Onset");
+a.addDetector("Amp");
+)
+```
 
 - Probar varios Detectores como:
 
