@@ -25,14 +25,14 @@
 - Executar MIDetector en Supercollider con:
 
 
--Activatar lectura de Microfono
+- Activatar lectura de Microfono
 
 
--Probar varios Detectores como:
+- Probar varios Detectores como:
 
--Comprobar que manda informacion en tu red local con:
+- Comprobar que manda informacion en tu red local con:
 
--Mandar Informacion musical a otra persona, cambiando puerto y ip. Esto es estando en la misma red local.
+- Mandar Informacion musical a otra persona, cambiando puerto y ip. Esto es estando en la misma red local.
 
 
 
