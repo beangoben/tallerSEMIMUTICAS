@@ -21,7 +21,7 @@
 
 ##### Ejercicio:
 
-- Instalar en su OS favorito[MIDetector](https://github.com/beangoben/MIDetectorOSC)
+- Instalar en su OS favorito [MIDetector](https://github.com/beangoben/MIDetectorOSC)
 
 - Executar MIDetector en Supercollider con:
 
@@ -47,7 +47,9 @@ a.addDetector("Amp");
 )
 ```
 
-- Probar varios Detectores como:
+- Probar varios Detectores como y con varios sonidos:
+
+
 
 - Comprobar que manda informacion y llega en tu red local con:
 
