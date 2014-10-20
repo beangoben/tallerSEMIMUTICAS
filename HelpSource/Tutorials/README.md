@@ -51,7 +51,9 @@ a.addDetector("Amp");
 
 If you want to detect Power Bands, you can just add it in the MIDetector, just like the Pitch, Onset and Amp examples.
 
+```javascript
 a.addDetector("Power",[\nbands,64]);
+```
 
 Try the detection with the following sounds.
 
@@ -68,6 +70,30 @@ x.free
 #### Processing Examples
 
 Processing code to recieve and parse messages.
+The processing example uses the library [oscP5](http://www.sojamo.de/libraries/oscP5/), it can be installed on processing using the Library Manager or manual installation.
+
+For example, if you use the following MIDector configuration, you are going to receive in processing 4 different types of information pitch, onset, amplitud and power bands.
+
+```javascript
+(
+a=MIDetectorManager.new(net:NetAddr("127.0.0.1",32000));
+a.addDetector("Pitch");
+a.addDetector("Onset",[\tol,0.3]);
+a.addDetector("Amp");
+a.addDetector("Power",[\nbands,64]);
+)
+```
+
+Base on this configuration, in processing you plug OSC functions that will receive that musical information, you cand do this for all the Detectors.
+
+```java
+  oscP5.plug(this, "ampResponse", "/amp");
+  oscP5.plug(this, "onsetResponse", "/onset");
+  oscP5.plug(this, "pitchResponse", "/pitch");
+  oscP5.plug(this, "powerResponse", "/power");
+```
+
+Complete Example in processing.
 
 ```java
 import java.nio.*;
