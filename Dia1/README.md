@@ -19,11 +19,11 @@
 * Problemas mas avanzados en IM
 * Opcional: Source Seperation & PolyPitch
 
-##### Ejercicio:
+#### Ejercicios:
 
-- Instalar en su OS favorito [MIDetector](https://github.com/beangoben/MIDetectorOSC)
+##### Instalar en su OS favorito [MIDetector](https://github.com/beangoben/MIDetectorOSC)
 
-- Executar MIDetector en Supercollider con:
+##### Executar MIDetector en Supercollider con:
 
 ```javascript
 (
@@ -34,7 +34,8 @@ a.addDetector("Amp");
 )
 ```
 
-- Activatar lectura de Microfono
+
+##### Activatar lectura de Microfono
 
 ```javascript
 z = {SoundIn.ar(0)}.play;
@@ -55,12 +56,12 @@ a.addDetector("Amp");
 )
 ```
 
-- Probar varios Detectores como y con varios sonidos:
+##### Probar varios Detectores como y con varios sonidos:
 
 - Deteccion de diferentes tipos de Frecuencias
-  Pitch
-  Tartini
-  FTPeak
+- Pitch
+- Tartini
+- FTPeak
 
 ```javascript
 (
@@ -71,7 +72,7 @@ a.addDetector("FTPeak");
 )
 ```
 
-Sonidos a probar:
+- Sonidos a probar:
 
 ```javascript
 x={
@@ -104,7 +105,11 @@ x={ WhiteNoise.ar(0.2) }.play;
 x.free
 ```
 
-Detector para Informacion Musical relacionado a Amplitud y Volumen
+- Detector para Informacion Musical relacionado a Amplitud y Volumen
+- Amp
+- WAmp
+- Loud
+- FTPower
 
 ```javascript
 (
@@ -116,7 +121,7 @@ a.addDetector("FTPower");
 )
 ```
 
-Sonidos a probar
+- Sonidos a probar
 
 ```javascript
 //vs a Saw modulated sound
@@ -152,7 +157,9 @@ x={Decay2.ar(Dust.ar(4),0.01,0.2,LFNoise2.kr(24).range(0,5))*SinOsc.ar(LFNoise2.
 x.free
 ```
 
-Detection Relacionado a Onset
+- Detection Relacionado a Onset
+- Onset
+- Coyote
 
 ```javascript
 (
@@ -162,7 +169,7 @@ a.addDetector("Coyote");
 )
 ```
 
-Sonidos a probar
+- Sonidos a probar
 
 ```javascript
 x={Impulse.ar(3)}.play
@@ -173,7 +180,10 @@ x={  Mix.ar(Decay2.ar(Impulse.ar([0.5,0.5],[0,0.5]),0.05,[0.25,0.5])* [Pulse.ar(
 x.free
 ```
 
-Deteccion para bandas de poder, Fourier Transforms Bins and Mags
+- Deteccion para bandas de poder, Fourier Transforms Bins and Mags
+- FTBins
+- FTMags
+- PowerBands
 
 ```javascript
 (
@@ -184,20 +194,20 @@ a.addDetector("PowerBands");
 )
 ```
 
-Sonido a probar
+-- Sonido a probar
 
 ```javascript
 x={Mix.ar(SinOsc.ar(LFNoise2.kr([2,1,3,5],1,0).range(20,20000)))*0.01}.play;
 x.free
 ```
 
-- Comprobar que manda informacion y llega en tu red local con:
+##### Comprobar que manda informacion y llega en tu red local con:
 
 ```javascript
 o = OSCresponderNode(nil, '/pitch', { |t, r, msg| msg.postln;}).add;
 ```
 
-- Mandar Informacion musical a otra persona, cambiando puerto y ip. Esto es estando en la misma red local.
+##### Mandar Informacion musical a otra persona, cambiando puerto y ip. Esto es estando en la misma red local.
 
 
 
