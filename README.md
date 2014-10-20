@@ -3,6 +3,7 @@ tallerSEMIMUTICAS
 
 ## Información Musical para procesos autónomos (visuales y sonoros)!
 ##### Aka Como extraer y conectar Información Musical sin hacer mucho trabajo.
+##### Aka Algoritmica Uroboros
 ___
 
 Este taller esta intencionado como una introducción a técnicas de procesamiento de audio para extraer información musical y conectarla a otros sistemas mediante OSC.
@@ -15,7 +16,7 @@ Tambien tocando en wavelets, diccionario de átomos de tiempo-frecuencia. Ademas
 
 3. **Feedback-loop Sonoro:** Conectaremos la información con el sonido, para explorar la modulación de sonidos mediante información de si misma. Como teoría veremos varios ejemplos de procesos autónomos dentro de la música.
 
-4. ** Algo mas? ** Quieres ver algun algoritmo en particular? Alguna idea en general? Podemos remplazar algun de los modulos por otros.
+4. **Algo mas?** Quieres ver algun algoritmo en particular? Alguna idea en general? Podemos remplazar algun de los modulos por otros. 
 
 #### Plataformas
 
