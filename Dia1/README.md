@@ -39,6 +39,11 @@ a.addDetector("Amp");
 ```javascript
 z = {SoundIn.ar(0)}.play;
 
+apagar el microfono con
+
+```javascript
+z.free
+```
 (
 a=MIDetectorManager.new(ins:z, net:NetAddr("127.0.0.1",32000));
 a.addDetector("Pitch");
@@ -49,7 +54,19 @@ a.addDetector("Amp");
 
 - Probar varios Detectores como y con varios sonidos:
 
+-- Deteccion de diferentes tipos de Frecuencias
 
+
+
+
+```javascript
+(
+a=MIDetectorManager.new(args:[\doPost,true,\stattime,4,\doStats,true]);
+a.addDetector("Pitch");
+a.addDetector("Tartini");
+a.addDetector("FTPeak");
+)
+```
 
 - Comprobar que manda informacion y llega en tu red local con:
 
