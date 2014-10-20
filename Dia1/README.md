@@ -22,6 +22,7 @@
 ##### Ejercicio:
 
 - Instalar en su OS favorito[MIDetector](https://github.com/beangoben/MIDetectorOSC)
+
 - Executar MIDetector en Supercollider con:
 
 ```javascript
@@ -48,7 +49,11 @@ a.addDetector("Amp");
 
 - Probar varios Detectores como:
 
-- Comprobar que manda informacion en tu red local con:
+- Comprobar que manda informacion y llega en tu red local con:
+
+```javascript
+o = OSCresponderNode(nil, '/pitch', { |t, r, msg| msg.postln;}).add;
+```
 
 - Mandar Informacion musical a otra persona, cambiando puerto y ip. Esto es estando en la misma red local.
 
