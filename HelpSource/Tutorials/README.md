@@ -1,8 +1,14 @@
-# MIDetectorOSC guide/overview
+# MIDetectorOSC
 
-summary:: Easy to use classes for sending musical information to other applications via OSC messages.
-categories:: Convenience, Musical Information, OSC
-related:: Classes/Amplitude, Classes/Pitch, Classes/Tarini, Classes/Onsets, Classes/FFTSubbandPower
+Easy to use classes for sending musical information to other applications via OSC messages.
+
+Convenience, Musical Information, send musical information to other applications in real time.
+
+- Amplitude
+- Pitch
+- Tarini
+- Onsets
+- FFTSubbandPower
 
 
 2013 -- Benjamin Sanchez Lengeling
@@ -10,9 +16,9 @@ related:: Classes/Amplitude, Classes/Pitch, Classes/Tarini, Classes/Onsets, Clas
 Thanks
 Thomas Sanchez Lengeling
 
-----
+-----
 
-##EXAMPLES::
+##EXAMPLES
 
 Once installed the library into Supercollider you are ready to start detection musical information!.
 
