@@ -38,12 +38,15 @@ a.addDetector("Amp");
 
 ```javascript
 z = {SoundIn.ar(0)}.play;
+```
 
 apagar el microfono con
 
 ```javascript
 z.free
 ```
+
+```javascript
 (
 a=MIDetectorManager.new(ins:z, net:NetAddr("127.0.0.1",32000));
 a.addDetector("Pitch");
