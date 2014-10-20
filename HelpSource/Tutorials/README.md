@@ -11,7 +11,7 @@ Convenience, Musical Information, send musical information to other applications
 - FFTSubbandPower
 
 
-2013 -- Benjamin Sanchez Lengeling
+Benjamin Sanchez Lengeling
 
 Thanks
 Thomas Sanchez Lengeling
@@ -22,25 +22,40 @@ Thomas Sanchez Lengeling
 
 Once installed the library into Supercollider you are ready to start detection musical information!.
 
-First boot up the server
+First boot up the server and run a simple MIDector, just to make sure that the installation worked.
 
 ```javascript
 s.boot;
+(
+  a=MIDetectorManager.new(net:NetAddr("127.0.0.1",32000));
+)
 ```
 
+This simple detector sends the information to a local host a.k.a your computer with a port number 32000.
+
+So lest start en detection some more usefull things, like Pitch, Onsets and amplitud.
+
+```javascript
 (
-//use default parameters for the detectors
 a=MIDetectorManager.new(net:NetAddr("127.0.0.1",32000));
-//Use default parameter for pitch
 a.addDetector("Pitch");
-//Change initial tolerance of onset to 0.3
 a.addDetector("Onset",[\tol,0.3]);
 a.addDetector("Amp");
-//Choose Number of bands to detect between the default frecuency values
-a.addDetector("Power",[\nbands,64]);
 )
+```
 
-//Try it out with this sound
+- Pitch, Detection Pitch of the sound
+- Onset, With a initial Threahold of 0.3, change this values to sensitivity of the Onsets
+- Amplitud, Detection Amplitud.
+
+
+If you want to detect Power Bands, you can just add it in the MIDetector, just like the Pitch, Onset and Amp examples.
+
+a.addDetector("Power",[\nbands,64]);
+
+Try the detection with the following sounds.
+
+```javascript
 x={Decay2.ar(Impulse.ar(2),0.01,0.2)*SinOsc.ar(LFNoise0.kr(2).range(20,10000).poll)}.play
 //Or your mouse
 x={Decay2.ar(Impulse.ar(2),0.01,0.2)*SinOsc.ar(MouseX.kr(20,10000,1).poll)}.play
@@ -48,23 +63,22 @@ x={Decay2.ar(Impulse.ar(2),0.01,0.2)*SinOsc.ar(MouseX.kr(20,10000,1).poll)}.play
 x={WhiteNoise.ar}.play
 //Kill it!
 x.free
-::
+```
 
-EXAMPLES::
+#### Processing Examples
+
 Processing code to recieve and parse messages.
 
-CODE::
+```java
 import java.nio.*;
 
 OscP5 oscP5;
 NetAddress myRemoteLocation;
 
-
 import oscP5.*;
 import netP5.*;
 
 boolean printOSCMessage = true;
-
 
 void setup()
 {
@@ -128,4 +142,4 @@ public void powerResponse(int id, int nbands,byte[] data){
    println("]");
    
 }
-::
+```
