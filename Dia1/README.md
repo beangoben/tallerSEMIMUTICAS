@@ -21,6 +21,22 @@
 
 ##### Ejercicio:
 
+- Instalar en su OS favorito[MIDetector](https://github.com/beangoben/MIDetectorOSC)
+- Executar MIDetector en Supercollider con:
+
+
+-Activatar lectura de Microfono
+
+
+-Probar varios Detectores como:
+
+-Comprobar que manda informacion en tu red local con:
+
+-Mandar Informacion musical a otra persona, cambiando puerto y ip. Esto es estando en la misma red local.
+
+
+
+
 
 
 
