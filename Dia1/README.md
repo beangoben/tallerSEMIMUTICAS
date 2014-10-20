@@ -34,8 +34,10 @@ a.addDetector("Amp");
 )
 ```
 
+Esto es para probar que su instalacion funciona.
 
-##### Activatar lectura de Microfono
+
+##### Activatar lectura de Microfono y analizar la deteccion que se obtiene.
 
 ```javascript
 z = {SoundIn.ar(0)}.play;
@@ -47,6 +49,8 @@ apagar el microfono con
 z.free
 ```
 
+Activar la Deteccion con lo siguinete:
+
 ```javascript
 (
 a=MIDetectorManager.new(ins:z, net:NetAddr("127.0.0.1",32000));
@@ -57,6 +61,8 @@ a.addDetector("Amp");
 ```
 
 ##### Probar varios Detectores como y con varios sonidos:
+
+Los siguientes ejercicios son para estar familiarizados con los diferentes detectores musicales y ademas para entender que detector funciona mejor con un sonido.
 
 - Deteccion de diferentes tipos de Frecuencias
 - Pitch
@@ -72,7 +78,7 @@ a.addDetector("FTPeak");
 )
 ```
 
-- Sonidos a probar:
+- Sonidos a probar para Frecuencias:
 
 ```javascript
 x={
@@ -121,7 +127,7 @@ a.addDetector("FTPower");
 )
 ```
 
-- Sonidos a probar
+- Sonidos a probar para Amplitud y volumen
 
 ```javascript
 //vs a Saw modulated sound
@@ -169,7 +175,7 @@ a.addDetector("Coyote");
 )
 ```
 
-- Sonidos a probar
+- Sonidos a probar para Onset
 
 ```javascript
 x={Impulse.ar(3)}.play
@@ -207,11 +213,34 @@ x.free
 o = OSCresponderNode(nil, '/pitch', { |t, r, msg| msg.postln;}).add;
 ```
 
-##### Mandar Informacion musical a otra persona, cambiando puerto y ip. Esto es estando en la misma red local.
+##### Mandar Informacion musical a otra persona, cambiando puerto y IP. Esto es estando en la misma red local.
+
+```javascript
+//HOST 1
+(
+a=MIDetectorManager.new(nets:NetAddr("192.168.1.100",32001),args:[\doPost,true,\doPlot,true,\doStats,true]);
+a.addDetector("FTBins"); //sends an array of complex numbers Real1,Imag1....RealN-1,ImagN-1
+a.addDetector("FTMags");
+a.addDetector("PowerBands");
+)
+
+//READ HOST 2
+n = NetAddr("192.168.1.102",32002); 
+o = OSCresponderNode(n, '/pitch', { |t, r, msg| msg.postln;}).add;
 
 
+//HOST 2
+(
+a=MIDetectorManager.new(nets:NetAddr("192.168.1.102",32002),args:[\doPost,true,\doPlot,true,\doStats,true]);
+a.addDetector("FTBins"); //sends an array of complex numbers Real1,Imag1....RealN-1,ImagN-1
+a.addDetector("FTMags");
+a.addDetector("PowerBands");
+)
 
-
+//READ HOST 1
+n = NetAddr("192.168.1.100",32001); 
+o = OSCresponderNode(n, '/pitch', { |t, r, msg| msg.postln;}).add;
+```
 
 
 
